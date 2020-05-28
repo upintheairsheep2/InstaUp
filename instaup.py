@@ -6,7 +6,7 @@ from os import rmdir
 
 currentTime = datetime.datetime.now(datetime.timezone.utc)
 fixedTime = str(currentTime.strftime("%Y%m%d%H%M%S"))
-loader = instaloader.Instaloader(dirname_pattern='{target}-' + fixedTime)
+loader = instaloader.Instaloader(dirname_pattern='{profile}-' + fixedTime)
 username = '<PROFILE>'
 loader.load_session_from_file('<YOUR INSTAGRAM USERNAME>')
 profile = instaloader.Profile.from_username(loader.context, username)
