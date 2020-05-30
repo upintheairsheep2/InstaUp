@@ -12,5 +12,6 @@ An auto downloader and uploader for Instagram profiles.
     instaloader --login=<YOUR INSTAGRAM USERNAME>
   and entering your password.
   
-  Then, in instaup.py, change \<PROFILE> to the profile you want to archive and \<YOUR INSTAGRAM USERNAME> to the username
-  of your Instagram account.
+  Then, in instaup.py, change \<YOUR INSTAGRAM USERNAME> to the username of your Instagram account.
+  Run it, and type in the username you want to archive and whether or not you want InstaUp to check
+  the profile's privacy settings.
