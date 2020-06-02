@@ -5,7 +5,7 @@ from os import rmdir
 from os import path
 
 def downloadUser(username, respectPrivacy):
-    loader = instaloader.Instaloader(dirname_pattern='{profile}')
+    loader = instaloader.Instaloader(dirname_pattern='{profile}', compress_json=False)
     loader.load_session_from_file(<YOUR INSTAGRAM USERNAME>)
     profile = instaloader.Profile.from_username(loader.context, username)
     if ((profile.is_private == True) and (respectPrivacy == ('yes' or 'Yes' or 'Y' or 'y'))):
