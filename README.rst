@@ -4,9 +4,9 @@ InstaUp
 An auto downloader and uploader for Instagram profiles.
 
 **Requirements**
-  `Instaloader <https://instaloader.github.io>`__ and `internetarchive <https://archive.org/services/docs/api/internetarchive/index.html>`__ on Python 3.
+  `TikTok-Api <https://github.com/davidteather/TikTok-Api>`__ and `internetarchive <https://archive.org/services/docs/api/internetarchive/index.html>`__ on Python 3.
 
 **How to use**
   Run by downloading and using
   ::
-    python instaup.py <username>
+    python tikup.py <username>
