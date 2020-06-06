@@ -8,7 +8,7 @@ with open('README.rst', 'r') as f:
 
 setup(
     name='instaup',
-    version='0.3',
+    version='0.4',
     description='An auto downloader and uploader for Instagram profiles.',
     long_description=long_description,
     long_description_content_type='text/x-rst',
@@ -17,7 +17,7 @@ setup(
     packages=find_packages(),
     entry_points={
         'console_scripts': [
-            'instaup = instaup:main',
+            'instaup = instaup.instaup:main',
         ],
     },
     python_requires='>=3.5, <4',
