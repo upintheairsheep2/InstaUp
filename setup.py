@@ -15,6 +15,11 @@ setup(
     url='https://github.com/Coloradohusky/InstaUp',
     author='Coloradohusky',
     py_modules=['instaup'],
+    entry_points={
+        'console_scripts': [
+            'instaup = instaup:main',
+        ],
+    },
     python_requires='>=3.5, <4',
     install_requires=['internetarchive>=1.9.3', 'instaloader>=4.4.3']
 )
