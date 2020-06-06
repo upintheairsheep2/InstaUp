@@ -29,14 +29,18 @@ def uploadUser(username, deletionStatus):
     except:
         return
 
-parser = argparse.ArgumentParser(description='An auto downloader and uploader for Instagram profiles.')
-parser.add_argument('user')
-parser.add_argument('--privacy', action='store_true', help="check the user's privacy settings")
-parser.add_argument('--delete', action='store_true', help="delete files when done")
-args = parser.parse_args()
-username = args.user
-privacy = args.privacy
-delete = args.delete
-didItWork = downloadUser(username, privacy)
-if (didItWork == True):
-    uploadUser(username, delete)
+def main():
+    parser = argparse.ArgumentParser(description='An auto downloader and uploader for Instagram profiles.')
+    parser.add_argument('user')
+    parser.add_argument('--privacy', action='store_true', help="check the user's privacy settings")
+    parser.add_argument('--delete', action='store_true', help="delete files when done")
+    args = parser.parse_args()
+    username = args.user
+    privacy = args.privacy
+    delete = args.delete
+    didItWork = downloadUser(username, privacy)
+    if (didItWork == True):
+        uploadUser(username, delete)
+
+if __name__ == '__main__':
+    main()
