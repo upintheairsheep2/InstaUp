@@ -14,7 +14,7 @@ setup(
     long_description_content_type='text/x-rst',
     url='https://github.com/Coloradohusky/InstaUp',
     author='Coloradohusky',
-    py_modules=['instaup'],
+    packages=['instaup'],
     entry_points={
         'console_scripts': [
             'instaup = instaup:main',
