@@ -8,5 +8,4 @@ An auto downloader and uploader for Instagram profiles.
 
 **How to use**
   Run by downloading and using
-  ::
-    python instaup.py <username>
+  ``python instaup.py <username>``.
