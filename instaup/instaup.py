@@ -7,7 +7,7 @@ import argparse
 
 def downloadUser(username, respectPrivacy):
     loader = instaloader.Instaloader(dirname_pattern='{profile}', compress_json=False)
-    loader.load_session_from_file('rileyjnielsen')
+    loader.load_session_from_file('username')
     profile = instaloader.Profile.from_username(loader.context, username)
     if ((profile.is_private == True) and (respectPrivacy == True)):
         print (username + " is a private profile. Exiting...")
@@ -18,10 +18,10 @@ def downloadUser(username, respectPrivacy):
 def uploadUser(username, deletionStatus):
     item = get_item('instagram-' + username)
     try:
-        item.upload('./' + username + '/', verbose=True, checksum=True, delete=deletionStatus, metadata=dict(collection='opensource_media', subject='instagram', creator=username, title='Instagram Profile: ' + username, originalurl='https://www.instagram.com/' + username, scanner='InstaUp 1.1'), retries=9001, retries_sleep=60)
+        item.upload('./' + username + '/', verbose=True, checksum=True, delete=deletionStatus, metadata=dict(collection='opensource_media', subject='instagram', creator=username, title='Instagram Profile: ' + username, originalurl='https://www.instagram.com/' + username, scanner='InstaUp 2020.06.07'), retries=9001, retries_sleep=60)
     except:
         print ("An error occurred, trying again.")
-        item.upload('./' + username + '/', verbose=True, checksum=True, delete=deletionStatus, metadata=dict(collection='opensource_media', subject='instagram', creator=username, title='Instagram Profile: ' + username, originalurl='https://www.instagram.com/' + username, scanner='InstaUp 1.1'), retries=9001, retries_sleep=60)
+        item.upload('./' + username + '/', verbose=True, checksum=True, delete=deletionStatus, metadata=dict(collection='opensource_media', subject='instagram', creator=username, title='Instagram Profile: ' + username, originalurl='https://www.instagram.com/' + username, scanner='InstaUp 2020.06.07'), retries=9001, retries_sleep=60)
     try:
         rmdir(username)
         print ("Deleted folder " + username)
