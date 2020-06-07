@@ -8,7 +8,7 @@ with open('README.rst', 'r') as f:
 
 setup(
     name='instaup',
-    version='1.1',
+    version='2020.06.07',
     description='An auto downloader and uploader for Instagram profiles.',
     long_description=long_description,
     long_description_content_type='text/x-rst',
