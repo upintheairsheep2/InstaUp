@@ -18,10 +18,10 @@ def downloadUser(username, respectPrivacy):
 def uploadUser(username, deletionStatus):
     item = get_item('instagram-' + username)
     try:
-        item.upload('./' + username + '/', verbose=True, checksum=True, delete=deletionStatus, metadata=dict(collection='opensource_media', subject='instagram', creator=username, title='Instagram Profile: ' + username, originalurl='https://www.instagram.com/' + username, scanner='InstaUp 1.0'), retries=9001, retries_sleep=60)
+        item.upload('./' + username + '/', verbose=True, checksum=True, delete=deletionStatus, metadata=dict(collection='opensource_media', subject='instagram', creator=username, title='Instagram Profile: ' + username, originalurl='https://www.instagram.com/' + username, scanner='InstaUp 1.1'), retries=9001, retries_sleep=60)
     except:
         print ("An error occurred, trying again.")
-        item.upload('./' + username + '/', verbose=True, checksum=True, delete=deletionStatus, metadata=dict(collection='opensource_media', subject='instagram', creator=username, title='Instagram Profile: ' + username, originalurl='https://www.instagram.com/' + username, scanner='InstaUp 1.0'), retries=9001, retries_sleep=60)
+        item.upload('./' + username + '/', verbose=True, checksum=True, delete=deletionStatus, metadata=dict(collection='opensource_media', subject='instagram', creator=username, title='Instagram Profile: ' + username, originalurl='https://www.instagram.com/' + username, scanner='InstaUp 1.1'), retries=9001, retries_sleep=60)
     try:
         rmdir(username)
         print ("Deleted folder " + username)
