@@ -5,9 +5,13 @@ from os import rmdir
 from os import path
 import argparse
 
-def downloadUser(username, respectPrivacy):
+def downloadUser(username, respectPrivacy, login):
     loader = instaloader.Instaloader(dirname_pattern='{profile}', compress_json=False)
-    loader.load_session_from_file('username')
+    try:
+        loader.load_session_from_file(str(login))
+    except:
+        loader.interactive_login(str(login))
+        loader.load_session_from_file(str(login))
     profile = instaloader.Profile.from_username(loader.context, username)
     if ((profile.is_private == True) and (respectPrivacy == True)):
         print (username + " is a private profile. Exiting...")
@@ -18,10 +22,10 @@ def downloadUser(username, respectPrivacy):
 def uploadUser(username, deletionStatus):
     item = get_item('instagram-' + username)
     try:
-        item.upload('./' + username + '/', verbose=True, checksum=True, delete=deletionStatus, metadata=dict(collection='opensource_media', subject='instagram', creator=username, title='Instagram Profile: ' + username, originalurl='https://www.instagram.com/' + username, scanner='InstaUp 2020.06.07'), retries=9001, retries_sleep=60)
+        item.upload('./' + username + '/', verbose=True, checksum=True, delete=deletionStatus, metadata=dict(collection='opensource_media', subject='instagram', creator=username, title='Instagram Profile: ' + username, originalurl='https://www.instagram.com/' + username, scanner='InstaUp 2020.06.08'), retries=9001, retries_sleep=60)
     except:
         print ("An error occurred, trying again.")
-        item.upload('./' + username + '/', verbose=True, checksum=True, delete=deletionStatus, metadata=dict(collection='opensource_media', subject='instagram', creator=username, title='Instagram Profile: ' + username, originalurl='https://www.instagram.com/' + username, scanner='InstaUp 2020.06.07'), retries=9001, retries_sleep=60)
+        item.upload('./' + username + '/', verbose=True, checksum=True, delete=deletionStatus, metadata=dict(collection='opensource_media', subject='instagram', creator=username, title='Instagram Profile: ' + username, originalurl='https://www.instagram.com/' + username, scanner='InstaUp 2020.06.08'), retries=9001, retries_sleep=60)
     try:
         rmdir(username)
         print ("Deleted folder " + username)
@@ -34,11 +38,13 @@ def main():
     parser.add_argument('user')
     parser.add_argument('--privacy', action='store_true', help="check the user's privacy settings")
     parser.add_argument('--delete', action='store_true', help="delete files when done")
+    parser.add_argument('--login', help="login with specified username")
     args = parser.parse_args()
     username = args.user
     privacy = args.privacy
     delete = args.delete
-    didItWork = downloadUser(username, privacy)
+    login = args.login
+    didItWork = downloadUser(username, privacy, login)
     if (didItWork == True):
         uploadUser(username, delete)
 
