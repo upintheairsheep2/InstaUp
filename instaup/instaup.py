@@ -56,11 +56,13 @@ def main():
     parser.add_argument('user')
     parser.add_argument('--privacy', action='store_true', help="check the user's privacy settings")
     parser.add_argument('--delete', action='store_true', help="delete files when done")
+    parser.add_argument('--nocomments', action='store_true', help="Don't archive comments. Useful when the account is popular and therefore has a lot of comments")
     parser.add_argument('--login', help="login with specified username")
     args = parser.parse_args()
     username = args.user
     privacy = args.privacy
     delete = args.delete
+    nocomments = args.nocomments
     login = args.login
     didItWork = downloadUser(username, privacy, login)
     if (didItWork == True):
