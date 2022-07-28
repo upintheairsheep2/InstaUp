@@ -30,7 +30,7 @@ def downloadUser(username, respectPrivacy, login):
     if ((profile.is_private == True) and (respectPrivacy == True)):
         print (username + " is a private profile. Exiting...")
         return False
-    loader.download_profiles([profile], igtv=True, highlights=True, stories=True)
+    loader.download_profiles([profile], igtv=True, highlights=True, stories=True, geotags=True)
     return True
 
 def uploadUser(username, deletionStatus):
